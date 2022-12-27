@@ -1,18 +1,15 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
-
 generator client {
   provider = "prisma-client-js"
 }
 
-model Todo {
-  id        String   @id @default(uuid())
-  createdAt DateTime @default(now())
-  text      String
-  completed Boolean
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model colaboradores {
+  ID    Int     @id @default(autoincrement())
+  Nome  String? @db.Text
+  Sobre String? @db.Text
+  Foto  String? @db.Text
 }
